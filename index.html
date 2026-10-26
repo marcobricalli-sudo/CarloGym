@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f6b3a">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Flanker Gym">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Flanker Gym – 12-week program</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4ee;--card:#fff;--ink:#17212b;--mut:#5d6b76;--line:#d9ded3;--acc:#1f6b3a;--accT:#fff;--soft:#e3eddc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10171d;--card:#18222b;--ink:#eef2ec;--mut:#9aa8b1;--line:#2a3742;--acc:#5fc27d;--accT:#0c1a11;--soft:#1d3326;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10171d;--card:#18222b;--ink:#eef2ec;--mut:#9aa8b1;--line:#2a3742;--acc:#5fc27d;--accT:#0c1a11;--soft:#1d3326;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Barlow,system-ui,sans-serif;max-width:640px;margin:auto;padding:0 14px 40px}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif;margin:0;letter-spacing:.01em}
+h1{font-size:34px;line-height:1;padding-top:16px}
+.sub{color:var(--mut);margin:4px 0 12px;font-size:14px}
+.week{display:flex;align-items:center;justify-content:space-between;background:var(--acc);color:var(--accT);border-radius:12px;padding:8px 12px;margin-bottom:10px}
+.week b{font:700 20px "Barlow Condensed",sans-serif}
+.week button{background:rgba(255,255,255,.2);color:inherit;border:0;border-radius:8px;width:40px;height:36px;font-size:20px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
+.tabs button{flex:1;min-width:64px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:8px 6px;font:600 14px Barlow,sans-serif}
+.tabs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tabs small{display:block;font-weight:400;opacity:.7}
+.day h2{font-size:26px;margin:14px 0 2px}
+.focus{color:var(--mut);font-size:14px;margin-bottom:8px}
+.ex{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px}
+.ex.done{background:var(--soft)}
+.top{display:flex;gap:10px;align-items:flex-start}
+.top input[type=checkbox]{width:24px;height:24px;accent-color:var(--acc);margin-top:2px;flex:none}
+.nm{font-weight:600;font-size:17px}
+.rx{font:700 18px "Barlow Condensed",sans-serif;color:var(--acc)}
+.nt{font-size:14px;color:var(--mut);margin:2px 0 0}
+.log{margin-top:8px;display:flex;gap:6px}
+.log input{flex:1;min-width:0;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:7px 9px;font:inherit;font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+.card h3{font-size:22px;margin-bottom:6px}
+.card ul{margin:0;padding-left:18px}.card li{margin:3px 0;font-size:15px}
+.rm{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.rm label{font-size:13px;color:var(--mut);display:block}
+.rm input{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:8px;font:600 18px Barlow,sans-serif}
+.wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+.bar{height:6px;background:var(--line);border-radius:3px;margin:6px 0 2px}.bar i{display:block;height:100%;background:var(--acc);border-radius:3px}
+.hero{display:block;width:100%;height:auto;border-radius:12px;margin:0 0 12px}.chip{display:inline-block;color:#fff;font:600 11px Barlow,sans-serif;border-radius:6px;padding:1px 7px;vertical-align:middle;margin-left:4px}.lb{display:flex;justify-content:space-between;font-size:14px;margin-top:10px}.lb span{color:var(--mut)}.tr{height:14px;background:var(--line);border-radius:7px;overflow:hidden}.tr i{display:block;height:100%;background:var(--acc);border-radius:7px}
+.fig{width:104px;height:69px;flex:none;background:var(--soft);border-radius:10px;align-self:flex-start}.fig .b{stroke:var(--ink);fill:none;stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round}.fig .e{stroke:var(--mut);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.fig .g{stroke:var(--mut);opacity:.4;stroke-width:2}.fig .h{fill:var(--acc)}.fig.mv{cursor:pointer;-webkit-tap-highlight-color:transparent}.btn{background:var(--acc);color:var(--accT);border:0;border-radius:8px;padding:0 16px;font:600 15px Barlow,sans-serif}.btn.ghost{background:transparent;color:var(--mut);border:1px solid var(--line)}.meals li{margin:8px 0}.stack{display:flex;height:16px;border-radius:8px;overflow:hidden;margin:8px 0 4px}.kc{font:700 40px/1 "Barlow Condensed",sans-serif;color:var(--acc)}.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:14px}.leg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+@media(max-width:380px){.fig{width:84px;height:56px}}
+</style></head><body>
+<h1>Flanker Gym</h1>
+<p class="sub">12 weeks · 4 sessions a week · speed, strength, agility, core</p>
+<svg class="hero" viewBox="0 0 600 130" role="img" aria-label="Rugby pitch with a running line and ball"><rect width="600" height="130" fill="#1f6b3a"/><g fill="#2a7d47"><rect x="60" width="60" height="130"/><rect x="180" width="60" height="130"/><rect x="300" width="60" height="130"/><rect x="420" width="60" height="130"/></g><g stroke="#f2f4ee" stroke-width="3" fill="none" opacity=".85"><line x1="300" y1="0" x2="300" y2="130"/><line x1="60" y1="0" x2="60" y2="130"/><line x1="540" y1="0" x2="540" y2="130"/><circle cx="300" cy="65" r="22"/></g><path d="M70 100 C160 100 190 30 280 52 S430 110 505 45" stroke="#f2f4ee" stroke-width="4" stroke-dasharray="4 9" stroke-linecap="round" fill="none"/><path d="M505 45 l-16 2 M505 45 l-6 14" stroke="#f2f4ee" stroke-width="4" stroke-linecap="round"/><g transform="translate(70 100) rotate(-20)"><ellipse rx="20" ry="12" fill="#f2f4ee" stroke="#17212b" stroke-width="2.5"/><path d="M-8 0h16M-4-4v8M0-4v8M4-4v8" stroke="#17212b" stroke-width="1.5"/></g></svg>
+<div class="week"><button id="pw" aria-label="Previous week">‹</button><div style="text-align:center"><b id="wk"></b><div id="ph" style="font-size:13px"></div></div><button id="nw" aria-label="Next week">›</button></div>
+<div id="strip"></div>
+<div class="tabs" id="tabs"></div>
+<div class="day" id="day"></div>
+<div class="card"><h3>Strength targets</h3><div id="chart"></div><p class="nt">Bars show current lift against a 12-week goal. Ratios use 63 kg body weight.</p></div>
+<div class="card"><h3>Your lifts</h3>
+<p class="nt" style="margin:0 0 8px">Best clean reps, not maxes. Update when he beats a number; working weights recalculate.</p>
+<div class="rm" id="rm"></div></div>
+<div class="card"><h3>Fuel for +8 to +15 kg</h3><div id="fuel"></div></div>
+<div class="card"><h3>Weekly weigh-in</h3><p class="nt" style="margin:0 0 8px">Same day, every week: Monday morning, after the toilet, before breakfast.</p><div class="log"><input id="bw" type="number" inputmode="decimal" step="0.1" placeholder="Body weight in kg"><button class="btn" id="bwb">Log</button><button class="btn ghost" id="bwu">Undo</button></div><div id="bwc"></div></div>
+<div class="card"><h3>Sample training day</h3><p class="nt" style="margin:0 0 6px">About 3,500 kcal at 63 kg. Eat every 3 hours and scale portions as his weight rises.</p><ul class="meals"><li><b>Breakfast (~800)</b> 3–4 eggs on 3 slices of toast with butter, a big bowl of porridge made with whole milk and a banana, a glass of orange juice.</li><li><b>Mid-morning (~350)</b> Greek yoghurt with granola and honey, plus a handful of nuts.</li><li><b>Lunch (~800)</b> Chicken or tuna wrap or sandwich with cheese, a big portion of rice or pasta, salad with olive oil, a piece of fruit.</li><li><b>Around training (~500)</b> Before: peanut butter bagel and a banana. After, within an hour: 500 ml chocolate milk and a sandwich, or a protein shake blended with oats and a banana.</li><li><b>Dinner (~800)</b> 150–200 g beef, chicken or salmon, a double portion of potatoes, rice or pasta, vegetables, olive oil or butter.</li><li><b>Before bed (~300)</b> Cereal with whole milk, or cottage cheese on toast.</li></ul><p class="nt">Recovery days (Wednesday and Sunday): eat the same amount. Muscle and bone grow while he rests.</p></div>
+<div class="card"><h3>Easy extra calories</h3><ul><li>Whole milk, not skimmed. Add a glass to every meal.</li><li>Smoothie: 300 ml milk, oats, banana, peanut butter, honey (about 700 kcal).</li><li>Olive oil or butter on rice, pasta, potatoes and vegetables.</li><li>Nut butter, dried fruit, cheese and crackers, trail mix as snacks.</li><li>Never skip breakfast. If appetite is low, drink calories.</li></ul></div>
+<div class="card"><h3>Game day and hydration</h3><ul><li><b>Friday dinner:</b> extra pasta, rice or potatoes with a normal portion of chicken or fish. Nothing new or heavy.</li><li><b>Saturday breakfast (3 hours before):</b> porridge, toast, eggs and fruit.</li><li><b>1 hour before:</b> banana or rice cakes with honey.</li><li><b>Half time:</b> water and orange slices.</li><li><b>Within an hour after:</b> chocolate milk and a sandwich, then a big dinner.</li><li><b>Water:</b> 2.5–3.5 litres on training and game days. Pale yellow urine means he is hydrated.</li><li><b>Sleep:</b> 9 hours. This is when he repairs and grows.</li></ul></div>
+<div class="card"><h3>Keep it safe</h3><ul><li>Food first. A protein shake is fine for convenience.</li><li>No creatine, mass-gainer powders, pre-workouts or testosterone boosters. These are not for under-18s.</li><li>He is still growing taller, so some weight gain will be height.</li><li>See a GP or sports dietitian before starting, and if his appetite, energy or weight changes sharply.</li></ul></div>
+<div class="card"><h3>Week plan</h3><div class="wrap"><table>
+<tr><td>Mon</td><td>Lower strength</td></tr><tr><td>Tue</td><td>Upper body and neck</td></tr><tr><td>Wed</td><td>Recovery</td></tr><tr><td>Thu</td><td>Power and contact strength</td></tr><tr><td>Fri</td><td>Speed and agility (short and sharp)</td></tr><tr><td>Sat</td><td>Game day</td></tr><tr><td>Sun</td><td>Recovery</td></tr></table></div>
+<p class="nt">Heavy leg work is on Monday and Thursday, so Friday stays light and fast for Saturday's game. On recovery days: walk, stretch, foam roll, eat and sleep well.</p></div>
+<div class="card"><h3>Test days (weeks 1, 6, 12)</h3><ul>
+<li>10m and 30m sprint, 5-10-5 shuttle</li><li>Vertical jump and standing broad jump</li><li>Plank hold, pull-up max reps</li><li>Body weight and height (he is still growing)</li></ul></div>
+<div class="card"><h3>Coach's rules for a 15-year-old</h3><ul>
+<li>Technique first. A coach or experienced adult watches every main lift.</li>
+<li>No 1-rep max tests. Add weight only when every rep is clean and the last rep felt like 2 left in the tank.</li>
+<li>Warm up 10 minutes: jog, hip and shoulder mobility, bodyweight squats, 2 light ramp-up sets.</li>
+<li>Rest 2–3 min between heavy sets, 60–90 s on accessories, full recovery between sprints.</li>
+<li>Eat enough: protein at every meal, carbs around training, aim for steady weight gain while height grows. Sleep 9 hours.</li>
+<li>Sharp joint or growth-plate pain (knee, heel, hip) means stop and see a physio.</li></ul></div>
+<script>
+var LIFTS={squat:125,bench:63,dead:100},W=1,DAY=0,DONE={},LOG={};
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+LIFTS=ld('lifts',LIFTS);W=ld('week',1);DONE=ld('done',{});LOG=ld('log',{});
+var PH=[{n:'Foundation',s:3,r:8,p:.65},{n:'Strength',s:4,r:5,p:.75},{n:'Strength and power',s:4,r:4,p:.8}];
+// m = main lift tied to a 1RM; f = fraction of that lift for this exercise
+var D=[
+{t:'Lower strength',d:'Mon',f:'Squat strength, hamstrings, single-leg power',e:[
+{n:'Box jump',x:'3 × 4',t:'Step down, reset each rep. Land quiet and soft.'},
+{n:'Back squat',m:'squat',f:1,t:'Chest tall, knees track over toes, full depth.'},
+{n:'Romanian deadlift',m:'dead',f:.6,t:'Hinge at hips, flat back, feel the hamstrings.'},
+{n:'Bulgarian split squat',x:'3 × 8 each leg',t:'Dumbbells, rear foot on bench.'},
+{n:'Nordic hamstring curl',x:'3 × 5',t:'Slow lower, assisted up. Key for sprint injury protection.'},
+{n:'Plank',x:'3 × 45 s',t:'Ribs down, squeeze glutes.'}]},
+{d:'Tue',t:'Upper body and neck',f:'Bench, pulling strength, tackle-ready neck and shoulders',e:[
+{n:'Bench press',m:'bench',f:1,t:'Feet planted, bar to mid-chest, controlled lower.'},
+{n:'Pull-up',x:'4 × 5–8',t:'Full range. Use a band if he cannot reach 5.'},
+{n:'Single-arm dumbbell row',x:'3 × 10 each',t:'Flat back, pull elbow to hip.'},
+{n:'Overhead press',x:'3 × 8',t:'Dumbbells or bar. Ribs down, no leaning back.'},
+{n:'Face pull',x:'3 × 15',t:'Light band or cable. Shoulder health.'},
+{n:'Neck isometrics',x:'4 ways × 2 × 20 s',t:'Hand resistance front, back, each side. Gentle build.'},
+{n:'Pallof press',x:'3 × 10 each side',t:'Anti-rotation core. Resist the twist.'}]},
+{d:'Fri',t:'Speed and agility',f:'Acceleration, change of direction, rotational power. Keep it short and sharp: game tomorrow.',e:[
+{n:'Acceleration sprints',x:'6 × 10 m',t:'Lying, kneeling and 2-point starts. Walk back recovery.'},
+{n:'Sled sprint (light)',x:'4 × 15 m',t:'10–15% body weight. Drive hard, lean forward.'},
+{n:'Flying sprints',x:'4 × 20 m',t:'Build up 10 m then full speed for 20 m.'},
+{n:'5-10-5 shuttle',x:'4 reps',t:'Low hips, sharp plant on the outside foot. 2 min rest.'},
+{n:'Reactive mirror drill',x:'4 × 10 s',t:'Partner leads, he mirrors. Eyes up, quick feet.'},
+{n:'Medicine ball rotational throw',x:'3 × 6 each side',t:'Hips lead, throw hard at a wall.'},
+{n:'Dead bug',x:'3 × 10',t:'Low back flat to floor, slow.'}]},
+{d:'Thu',t:'Power and contact strength',f:'Explosive hips, driving legs, tough core',e:[
+{n:'Trap bar deadlift',m:'dead',f:.8,t:'Push the floor away. Fast up, controlled down.'},
+{n:'Hang power clean or dumbbell snatch',x:'4 × 3',t:'Light, perfect technique, coach present.'},
+{n:'Sled or prowler push',x:'4 × 15 m',t:'Low body angle, drive like a scrum.'},
+{n:'Hip thrust',x:'3 × 8',t:'Pause 1 s at the top.'},
+{n:'Landmine rotation',x:'3 × 8 each side',t:'Rotate from hips, arms straight.'},
+{n:'Farmer\'s carry',x:'3 × 30 m',t:'Heavy dumbbells, tall posture.'},
+{n:'Hanging knee raise',x:'3 × 10',t:'No swinging.'}]}];
+D.splice(2,0,D.splice(3,1)[0]);
+function rd(x){return Math.round(x/2.5)*2.5}
+function ph(){return PH[W<=4?0:W<=8?1:2]}
+function rx(e){if(!e.m)return e.x;var p=ph(),k=rd(LIFTS[e.m]*p.p*e.f);return p.s+' × '+p.r+' @ '+k+' kg'}
+function draw(){
+ document.getElementById('wk').textContent='Week '+W+' of 12';
+ document.getElementById('ph').textContent=ph().n;strip();chart();
+ var tb=document.getElementById('tabs');tb.innerHTML='';
+ D.forEach(function(d,i){var b=document.createElement('button');b.className=i==DAY?'on':'';b.innerHTML=d.d+'<small>Day '+(i+1)+'</small>';b.onclick=function(){DAY=i;draw()};tb.appendChild(b)});
+ var d=D[DAY],h='<h2>'+d.t+'</h2><div class="focus">'+d.f+'<br>Tap a diagram to see it move.</div>',n=0;
+ d.e.forEach(function(e,i){var k=W+'-'+DAY+'-'+i,ok=DONE[k];if(ok)n++;
+  h+='<div class="ex'+(ok?' done':'')+'" style="border-left:5px solid '+cat(e).c+'"><div class="top"><input type="checkbox" data-k="'+k+'"'+(ok?' checked':'')+' aria-label="Done"><div style="flex:1"><div class="nm">'+e.n+' <span class="chip" style="background:'+cat(e).c+'">'+cat(e).l+'</span></div><div class="rx">'+rx(e)+'</div><div class="nt">'+e.t+'</div></div>'+fig2(e)+'</div>'+
+  '<div class="log"><input data-l="'+k+'" placeholder="Log weight, reps, how it felt" value="'+(LOG[k]||'').replace(/"/g,'&quot;')+'"></div></div>'});
+ h+='<div class="sub">'+n+' of '+d.e.length+' done</div><div class="bar"><i style="width:'+(100*n/d.e.length)+'%"></i></div>';
+ document.getElementById('day').innerHTML=h;
+ document.querySelectorAll('[data-k]').forEach(function(c){c.onchange=function(){DONE[c.dataset.k]=c.checked;sv('done',DONE);draw()}});
+ document.querySelectorAll('[data-l]').forEach(function(c){c.oninput=function(){LOG[c.dataset.l]=c.value;sv('log',LOG)}});
+}
+document.getElementById('pw').onclick=function(){if(W>1){W--;sv('week',W);draw()}};
+document.getElementById('nw').onclick=function(){if(W<12){W++;sv('week',W);draw()}};
+var rm=document.getElementById('rm');
+[['squat','Squat kg'],['bench','Bench kg'],['dead','Deadlift kg']].forEach(function(a){
+ var l=document.createElement('div');l.innerHTML='<label>'+a[1]+'</label><input type="number" inputmode="decimal" value="'+LIFTS[a[0]]+'">';
+ l.querySelector('input').onchange=function(){var v=parseFloat(this.value);if(v>0){LIFTS[a[0]]=v;sv('lifts',LIFTS);draw()}};rm.appendChild(l)});
+var P={squat:[60,28,56,36,50,42,60,38,44,56,62,54,52,72,'<path d="M38 35h34M38 30v10M72 30v10"/>'],
+hinge:[78,38,70,40,72,52,73,62,40,40,44,56,42,72,'<path d="M60 62h30M60 57v10M90 57v10"/>'],
+tdl:[70,32,62,36,62,50,62,62,42,50,56,60,50,72,'<path d="M48 62h28M48 57v10M76 57v10"/>'],
+bench:[28,50,38,52,38,40,38,28,70,52,86,44,90,68,'<path d="M24 56h64v4H24zM26 28h24M26 23v10M50 23v10"/>'],
+pullup:[60,22,60,30,54,19,58,8,60,50,61,62,57,72,'<path d="M40 8h40"/>'],
+row:[68,34,60,38,56,50,58,58,40,42,44,57,44,72,'<path d="M55 58h8v6h-8z"/>'],
+ohp:[60,16,60,24,66,14,62,5,60,46,61,59,60,72,'<path d="M46 5h32M46 1v8M78 1v8"/>'],
+facepull:[60,16,60,26,68,28,72,20,58,46,62,59,60,72,'<path d="M72 20L110 20"/><circle cx="112" cy="20" r="3"/>'],
+plank:[22,48,30,52,30,68,42,68,62,57,78,62,96,70,''],
+deadbug:[24,66,34,66,34,54,34,42,64,66,64,46,82,46,''],
+split:[62,22,60,30,58,42,58,54,56,48,74,52,74,72,'<path class="b" d="M56 48L40 58L26 56"/><path d="M20 58h16v14H20z"/>'],
+nordic:[73,37,66,42,72,52,80,60,52,54,38,68,20,72,''],
+neck:[60,16,60,26,70,22,64,11,60,48,61,60,60,72,'<path d="M78 10h12M85 6l5 4-5 4"/>'],
+pallof:[60,16,60,26,70,28,80,28,58,46,64,58,60,72,'<path d="M80 28L110 28"/><circle cx="112" cy="28" r="3"/>'],
+landmine:[60,18,60,27,72,25,84,24,56,46,62,58,58,72,'<path d="M24 72L86 22"/>'],
+box:[68,18,64,26,54,30,46,38,54,42,68,44,60,56,'<path d="M36 56h50v16H36z"/>'],
+start:[70,24,64,30,70,40,78,34,46,42,62,52,62,72,'<path class="b" d="M46 42L26 60L14 72"/>'],
+sprint:[62,14,58,22,66,32,72,24,54,42,70,50,66,64,'<path class="b" d="M54 42L40 58L26 62"/><path class="b" d="M58 22L48 30L52 40"/>'],
+sled:[70,24,64,30,70,40,78,34,46,42,62,52,62,72,'<path class="b" d="M46 42L26 60L14 72"/><path d="M46 42L12 54M0 52h12v14H0z"/>'],
+shuttle:[60,24,60,32,50,40,44,48,58,50,72,58,80,72,'<path class="b" d="M58 50L44 60L36 72"/><path d="M92 40h14M102 36l4 4-4 4"/>'],
+ball:[60,19,60,28,72,28,84,26,56,48,62,60,58,72,'<circle cx="92" cy="26" r="7"/>'],
+push:[73,28,66,32,76,38,86,44,48,48,56,60,42,72,'<path d="M86 36h26v24H86z"/>'],
+thrust:[22,52,30,56,44,58,54,48,56,48,76,56,80,72,'<path d="M14 58h30v14H14z"/><circle cx="56" cy="46" r="5"/>'],
+carry:[60,16,60,26,60,38,60,50,60,46,61,59,60,72,'<path d="M55 50h10v6H55z"/>'],
+raise:[60,17,60,26,58,18,60,8,60,46,74,46,74,60,'<path d="M42 8h36"/>'],
+clean:[62,24,58,32,60,44,60,52,50,44,58,58,54,72,'<path d="M44 52h32M44 47v10M76 47v10"/>']};
+var M=[[/Back squat/,'squat'],[/Romanian/,'hinge'],[/Trap bar/,'tdl'],[/Bench/,'bench'],[/Pull-up/,'pullup'],[/row/i,'row'],[/Overhead/,'ohp'],[/Face pull/,'facepull'],[/Plank/,'plank'],[/Dead bug/,'deadbug'],[/Bulgarian/,'split'],[/Nordic/,'nordic'],[/Neck/,'neck'],[/Pallof/,'pallof'],[/Landmine/,'landmine'],[/Box jump/,'box'],[/Acceleration/,'start'],[/Sled sprint/,'sled'],[/Flying/,'sprint'],[/shuttle|mirror/i,'shuttle'],[/Medicine/,'ball'],[/Sled or prowler/,'push'],[/Hip thrust/,'thrust'],[/Farmer/,'carry'],[/knee raise/,'raise'],[/clean|snatch/i,'clean']];
+function fig(e){var a=null;for(var i=0;i<M.length;i++)if(M[i][0].test(e.n)){a=P[M[i][1]];break}if(!a)return'';return '<svg class="fig" viewBox="0 0 120 80" role="img" aria-label="'+e.n+' position"><path class="g" d="M0 72h120"/><g class="e">'+a[14]+'</g><path class="b" d="M'+a[0]+' '+a[1]+'L'+a[2]+' '+a[3]+'L'+a[8]+' '+a[9]+'L'+a[10]+' '+a[11]+'L'+a[12]+' '+a[13]+'M'+a[2]+' '+a[3]+'L'+a[4]+' '+a[5]+'L'+a[6]+' '+a[7]+'"/><circle class="h" cx="'+a[0]+'" cy="'+a[1]+'" r="6"/></svg>'}
+var Q={squat:[60,16,60,24,52,30,62,28,58,44,60,58,60,72,'<path d="M44 25h30M44 20v10M74 20v10"/>'],
+hinge:[60,16,60,26,60,38,61,48,58,46,60,59,60,72,'<path d="M46 48h30M46 43v10M76 43v10"/>'],
+tdl:[60,16,60,26,60,38,61,48,58,46,60,59,60,72,'<path d="M46 48h30M46 43v10M76 43v10"/>'],
+bench:[28,50,38,52,48,54,38,46,70,52,86,44,90,68,'<path d="M24 56h64v4H24zM26 46h24M26 41v10M50 41v10"/>'],
+pullup:[60,5,60,16,52,22,58,8,60,38,61,50,57,62,'<path d="M40 8h40"/>'],
+row:[68,34,60,38,46,40,50,48,40,42,44,57,44,72,'<path d="M47 48h8v6h-8z"/>'],
+ohp:[60,16,60,24,68,30,62,24,60,46,61,59,60,72,'<path d="M46 24h32M46 20v8M78 20v8"/>'],
+facepull:[60,16,60,26,72,24,84,22,58,46,62,59,60,72,'<path d="M84 22L110 20"/><circle cx="112" cy="20" r="3"/>'],
+deadbug:[24,66,34,66,24,66,14,66,64,66,76,66,88,66,''],
+split:[62,18,60,26,58,36,58,48,58,42,70,56,74,72,'<path class="b" d="M58 42L44 54L26 56"/><path d="M20 58h16v14H20z"/>'],
+nordic:[82,56,74,56,80,64,84,72,56,60,38,68,20,72,''],
+neck:[62,16,60,26,70,22,64,11,60,48,61,60,60,72,'<path d="M80 10h12M87 6l5 4-5 4"/>'],
+pallof:[60,16,60,26,62,34,66,28,58,46,64,58,60,72,'<path d="M66 28L110 28"/><circle cx="112" cy="28" r="3"/>'],
+landmine:[60,18,60,27,72,34,84,40,56,46,62,58,58,72,'<path d="M24 72L86 40"/>'],
+box:[60,10,60,18,62,26,62,34,60,34,62,44,60,56,'<path d="M36 56h50v16H36z"/>'],
+start:[74,20,68,28,74,38,82,32,50,42,68,50,68,58,'<path class="b" d="M50 42L30 56L20 72"/>'],
+sprint:[62,14,58,22,50,32,44,26,54,42,44,56,30,62,'<path class="b" d="M54 42L70 50L66 64"/><path class="b" d="M58 22L66 32L72 24"/>'],
+sled:[74,20,68,28,74,38,82,32,50,42,68,50,68,58,'<path class="b" d="M50 42L30 56L20 72"/><path d="M50 42L12 54M0 52h12v14H0z"/>'],
+shuttle:[60,24,60,32,68,40,74,48,58,50,46,58,40,72,'<path class="b" d="M58 50L72 60L80 72"/><path d="M30 40h-14M20 36l-4 4 4 4"/>'],
+ball:[60,19,60,28,52,36,46,40,58,48,60,60,58,72,'<circle cx="40" cy="42" r="7"/>'],
+push:[73,28,66,32,76,38,86,44,52,46,62,58,52,72,'<path d="M86 36h26v24H86z"/><path class="b" d="M52 46L40 62L30 72"/>'],
+thrust:[22,52,30,56,44,58,54,62,56,64,76,54,80,72,'<path d="M14 58h30v14H14z"/><circle cx="56" cy="62" r="5"/>'],
+carry:[60,16,60,26,60,38,60,50,60,46,66,58,70,70,'<path d="M55 50h10v6H55z"/><path class="b" d="M60 46L54 60L50 72"/>'],
+raise:[60,17,60,26,58,18,60,8,60,46,61,58,60,70,'<path d="M42 8h36"/>'],
+clean:[60,16,60,24,68,32,60,26,58,44,66,56,60,72,'<path d="M46 24h32M46 20v8M78 20v8"/>']};
+var PLAY={},FG={},RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function key(e){for(var i=0;i<M.length;i++)if(M[i][0].test(e.n))return M[i][1];return null}
+function bd(a){return 'M'+a[0]+' '+a[1]+'L'+a[2]+' '+a[3]+'L'+a[8]+' '+a[9]+'L'+a[10]+' '+a[11]+'L'+a[12]+' '+a[13]+'M'+a[2]+' '+a[3]+'L'+a[4]+' '+a[5]+'L'+a[6]+' '+a[7]}
+function fig2(e){var k=key(e);if(!k)return'';var a=P[k],b=Q[k];FG[e.n]={a:a,b:b};var mv=!!b,pl=mv&&PLAY[e.n],s=pl&&RM?b:a;return '<svg class="fig'+(mv?' mv':'')+'" data-n="'+e.n+'" role="img" aria-label="'+e.n+(mv?' movement, tap to play':' hold position')+'" viewBox="0 0 120 80"><path class="g" d="M0 72h120"/><g class="e">'+s[14]+'</g><path class="b bd" d="'+bd(s)+'"/><circle class="h" cx="'+s[0]+'" cy="'+s[1]+'" r="6"/>'+(mv&&!pl?'<circle cx="104" cy="62" r="9" fill="var(--acc)"/><path d="M101 57l8 5-8 5z" fill="var(--accT)"/>':'')+'</svg>'}
+function tick(t){var els=document.querySelectorAll('.fig.mv');for(var i=0;i<els.length;i++){var s=els[i],n=s.getAttribute('data-n');if(!PLAY[n])continue;var f=FG[n],p=(1-Math.cos(2*Math.PI*t/1700))/2,c=[];for(var j=0;j<14;j++)c[j]=f.a[j]+(f.b[j]-f.a[j])*p;s.querySelector('.bd').setAttribute('d',bd(c));var h=s.querySelector('.h');h.setAttribute('cx',c[0]);h.setAttribute('cy',c[1]);var w=p<.5?'a':'b',g=s.querySelector('.e');if(g.getAttribute('data-x')!==w){g.innerHTML=f[w][14];g.setAttribute('data-x',w)}}requestAnimationFrame(tick)}
+if(!RM)requestAnimationFrame(tick);
+document.getElementById('day').addEventListener('click',function(ev){var s=ev.target.closest&&ev.target.closest('.fig.mv');if(!s)return;var n=s.getAttribute('data-n');PLAY[n]=!PLAY[n];draw()});
+var BW=ld('bw',[]);
+function last(){return BW.length?BW[BW.length-1].w:63}
+function fuel(){var b=last(),p=Math.round(2*b),c=Math.round(7.5*b),k=Math.round(55*b/50)*50,f=Math.round((k-4*p-4*c)/9),pp=4*p/k*100,cp=4*c/k*100,fp=100-pp-cp,h='<div class="kc">'+k.toLocaleString()+' kcal</div><div class="nt">a day for '+b+' kg, every day including rest days</div><div class="stack"><i style="width:'+pp+'%;background:#2a7fb8"></i><i style="width:'+cp+'%;background:#d9772b"></i><i style="width:'+fp+'%;background:#8a6bbf"></i></div><div class="leg"><span><i style="background:#2a7fb8"></i>Protein '+p+' g</span><span><i style="background:#d9772b"></i>Carbs '+c+' g</span><span><i style="background:#8a6bbf"></i>Fat '+f+' g</span></div>';h+='<p class="nt" style="margin-top:10px"><b>Pace:</b> a safe gain for a growing teenager is 0.25–0.5 kg a week. The full +8 to +15 kg takes about 4 to 14 months (16 to 60 weeks). These 12 weeks should add roughly 3 to 6 kg. Targets recalculate from his latest weigh-in.</p><p class="nt">'+pace()+'</p>';document.getElementById('fuel').innerHTML=h}
+function pace(){if(BW.length<3)return 'Log 3 weekly weigh-ins and this will tell you whether to eat more or less.';var l=BW[BW.length-1],e=null;for(var i=BW.length-2;i>=0;i--){if(l.t-BW[i].t>=9*864e5){e=BW[i];break}}if(!e)return 'Keep logging weekly. After 2 weeks you get a pace check.';var r=(l.w-e.w)/((l.t-e.t)/6048e5);var s='Recent pace: '+(r>=0?'+':'')+r.toFixed(2)+' kg a week. ';if(r<.25)return s+'Too slow. Add about 250 kcal a day (a smoothie or extra snack).';if(r>.5)return s+'Faster than ideal. Trim about 200 kcal a day and keep training.';return s+'Right on target. Keep going.'}
+function bwchart(){var s=BW.length?BW[0].w:63,t0=BW.length?BW[0].t:Date.now(),X=function(w){return 34+w/52*276},Y=function(v){return 128-(v-(s-1))/(s+16-(s-1))*110},h='<svg viewBox="0 0 320 150" style="width:100%;margin-top:10px" role="img" aria-label="Body weight against target pace"><polygon points="'+X(0)+','+Y(s)+' '+X(30)+','+Y(s+15)+' '+X(52)+','+Y(s+15)+' '+X(52)+','+Y(s+13)+'" fill="var(--soft)"/>';[[8,'+8'],[15,'+15']].forEach(function(g){h+='<line x1="34" x2="310" y1="'+Y(s+g[0])+'" y2="'+Y(s+g[0])+'" stroke="var(--acc)" stroke-dasharray="4 4" opacity=".6"/><text x="2" y="'+(Y(s+g[0])+3)+'" font-size="9" fill="var(--mut)">'+Math.round(s+g[0])+' kg</text>'});h+='<text x="2" y="'+(Y(s)+3)+'" font-size="9" fill="var(--mut)">'+Math.round(s)+' kg</text>';[0,13,26,39,52].forEach(function(w){h+='<text x="'+X(w)+'" y="145" font-size="9" text-anchor="middle" fill="var(--mut)">wk '+w+'</text>'});var pts=BW.map(function(e){return X(Math.min(52,(e.t-t0)/6048e5))+','+Y(e.w)});if(pts.length>1)h+='<polyline points="'+pts.join(' ')+'" fill="none" stroke="var(--ink)" stroke-width="2.5"/>';pts.forEach(function(p){var q=p.split(',');h+='<circle cx="'+q[0]+'" cy="'+q[1]+'" r="4" fill="var(--acc)"/>'});h+='</svg><p class="nt">'+(BW.length?'Shaded area is the safe pace of 0.25–0.5 kg a week. Dashed lines mark +8 kg and +15 kg.':'Log his first weigh-in to start the chart. The shaded area will show the safe pace of 0.25–0.5 kg a week.')+'</p>';document.getElementById('bwc').innerHTML=h}
+document.getElementById('bwb').onclick=function(){var i=document.getElementById('bw'),v=parseFloat(i.value);if(v>20&&v<150){BW.push({t:Date.now(),w:v});sv('bw',BW);i.value='';fuel();bwchart()}};
+document.getElementById('bwu').onclick=function(){BW.pop();sv('bw',BW);fuel();bwchart()};
+fuel();bwchart();
+function cat(e){var n=e.n;if(/sprint|shuttle|mirror|Acceleration/i.test(n))return{l:'Speed',c:'#d9772b'};if(/jump|clean|snatch|throw|sled|prowler|Trap bar/i.test(n))return{l:'Power',c:'#c4453c'};if(/plank|dead bug|Pallof|landmine|knee raise|carry|neck/i.test(n))return{l:'Core and neck',c:'#2a7fb8'};return{l:'Strength',c:'#1f6b3a'}}
+function strip(){var h='<div class="card"><h3>Program progress</h3><div style="display:flex;gap:4px;align-items:flex-end;height:64px">';for(var w=1;w<=12;w++){var n=0;for(var k in DONE)if(DONE[k]&&k.indexOf(w+'-')==0)n++;var p=Math.min(1,n/28);h+='<div data-w="'+w+'" style="flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer"><div style="height:'+(6+p*58)+'px;background:'+(p?'var(--acc)':'var(--line)')+';border-radius:4px;'+(w==W?'outline:2px solid var(--ink);outline-offset:2px':'')+'"></div></div>'}h+='</div><div style="display:flex;gap:4px;font-size:11px;color:var(--mut);margin-top:4px">';for(w=1;w<=12;w++)h+='<div style="flex:1;text-align:center">'+w+'</div>';h+='</div><p class="nt">Taller bars mean more sessions finished that week. Tap a bar to jump to it.</p></div>';var s=document.getElementById('strip');s.innerHTML=h;s.querySelectorAll('[data-w]').forEach(function(c){c.onclick=function(){W=+c.dataset.w;sv('week',W);draw()}})}
+function chart(){var T=[['squat','Squat',140],['bench','Bench press',80],['dead','Deadlift',125]],h='';T.forEach(function(t){var c=LIFTS[t[0]];h+='<div class="lb"><b>'+t[1]+'</b><span>'+c+' → '+t[2]+' kg · '+(c/63).toFixed(1)+'× body weight</span></div><div class="tr"><i style="width:'+Math.min(100,c/t[2]*100)+'%"></i></div>'});document.getElementById('chart').innerHTML=h}
+draw();
+</script><script>if('serviceWorker' in navigator){addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}</script>
+</body></html>
